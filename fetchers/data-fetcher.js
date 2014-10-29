@@ -4,13 +4,13 @@ var gbContentFetcher = require("./gb-content-fetcher");
 
 function getData(source, productId, callback) {
     switch (source){
-        case "db":
+        case "DB":
             dbFetcher.fetch(productId, returnData);
             break;
-        case "es":
+        case "Elastic":
             esFetcher.fetch(productId, returnData);
             break;
-        case "gb":
+        case "Greenbox":
             gbContentFetcher.fetch(productId, returnData);
             break;
     }
