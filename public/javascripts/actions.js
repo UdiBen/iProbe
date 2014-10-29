@@ -21,6 +21,12 @@
         var selectedTab = $('#tabs').find(".ui-tabs-active a").text();
         $.get("/product?source=" + selectedTab + "&productId=" + productId, function (response) {
             viewModel.fields(response);
+            $(response).each(function(index, value){
+                if(value.name == 'ImageURL'){
+                    var imageUrl = value.value;
+                    $('#product-image').attr('src', imageUrl);
+                }
+            });
         });
     }
 

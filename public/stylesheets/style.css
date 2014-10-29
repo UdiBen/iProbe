@@ -5,6 +5,16 @@ body {
 body .alternate {
   background-color: #F8F8F8;
 }
+body #product-image {
+  width: 250px;
+  height: 250px;
+}
+body .float {
+  float: left;
+}
+body .breaker {
+  clear: both;
+}
 
 a {
   color: #00B7FF;

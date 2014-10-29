@@ -4,6 +4,9 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   .alternate {background-color: #F8F8F8 ;}
+  #product-image {width: 250px; height: 250px; }
+  .float {float: left;}
+  .breaker {clear: both; }
 }
 
 a {
