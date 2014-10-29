@@ -3,8 +3,7 @@
  */
 var config = {};
 config.elastic = {};
-config.elastic.host = "cruxelastic1";
-config.elastic.port = "9200";
+config.elastic.host = "cruxelastic1:9200";
 
 config.db = {};
 config.db.host = "cruxdb";
