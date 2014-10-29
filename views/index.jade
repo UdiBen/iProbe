@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    div(id="content")
+        span Product Id:
+        input(class="product-id",value="4")
+        button(class="fetch-button") Fetch
+        table(class="info-table")
+            thead
+                tr(data-bind="foreach:fields")
+                    th(data-bind="text: name")
+            tbody
+                tr(data-bind="foreach:fields")
+                    td(data-bind="text: value")
+
+
+
