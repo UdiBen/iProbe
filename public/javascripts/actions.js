@@ -11,4 +11,5 @@
     });
 
     ko.applyBindings(viewModel, $("#content")[0]);
+    $( "#tabs" ).tabs();
 })();
