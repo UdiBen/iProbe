@@ -1,7 +1,6 @@
 (function(){
     var viewModel = {
-        fields: ko.observableArray([]/*[{value:"aaa"}, {value: "bbb"}]*/),
-        test: "udi"
+        fields: ko.observableArray([])
     };
 
     $(".fetch-button").on("click", function(){

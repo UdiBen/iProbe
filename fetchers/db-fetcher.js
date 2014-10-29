@@ -1,14 +1,14 @@
 /**
  * Created by kim on 10/29/2014.
  */
-
 var mysql =  require('mysql');
+var config = require('./../config/config').db
 
 function fetch(productId, callback){
     var connection =  mysql.createConnection({
-            host : "localhost",
-            user : "root",
-            password: "MF12345"
+            host : config.host,
+            user : config.user,
+            password: config.pwd
     });
 
     connection.connect();

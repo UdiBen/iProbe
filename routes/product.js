@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var fetcher = require('./data-fetcher');
+var fetcher = require('./../fetchers/data-fetcher');
 
 /* GET product info. */
 router.get('/', function(req, res) {

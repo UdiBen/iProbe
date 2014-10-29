@@ -1,4 +1,4 @@
-var dbFetcher = require("../fetchers/db-fetcher");
+var dbFetcher = require("db-fetcher");
 
 function getData(source, productId, callback) {
     switch (source){
