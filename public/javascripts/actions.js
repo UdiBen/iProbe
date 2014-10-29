@@ -6,7 +6,7 @@
 
     $(".fetch-button").on("click", function(){
         $.get("/product?source=db&productId="+$(".product-id").val(), function (response) {
-            viewModel.fields($.parseJSON(response));
+            viewModel.fields(response);
         });
     });
 
