@@ -3,6 +3,7 @@
  */
 var dbFetcher =  require('./db-fetcher');
 var config = require('./../config/config').gb
+var request = require('request');
 
 function fetch(productId, callback){
     dbFetcher.fetchBOs(productId, callGreenbox);
@@ -15,8 +16,15 @@ function fetch(productId, callback){
             return;
         }
 
-        $.get(config.host + "get/content/" + bo["SIN"], function(response){
-            console.log(response);
+        var options = {
+            url: config.host + "get/content/" + bo["SIN"],
+            headers: {
+                'Accept': 'application/json'
+            }
+        };
+        request(options, function(error, response, body){
+            var content = JSON.parse(body)[0]["_blob"]["content"];
+            callback(content);
         });
     }
 }
