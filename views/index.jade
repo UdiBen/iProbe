@@ -6,11 +6,12 @@ block content
         input(class="product-id",value="4")
         button(class="fetch-button") Fetch
         table(class="info-table")
-            thead
-                tr(data-bind="foreach:fields")
-                    th(data-bind="text: name")
-            tbody
-                tr(data-bind="foreach:fields")
+            tr
+                td("name")
+                td("value")
+            tbody(data-bind="foreach:fields")
+                tr(data-bind="css: { alternate: $index() % 2 }")
+                    td(data-bind="text: name")
                     td(data-bind="text: value")
 
 
