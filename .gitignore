@@ -1,5 +1,5 @@
 *.sass-cache*
 
-iProbe.ipr
-iProbe.iws
+*.ipr
+*.iws
 .idea*
