@@ -6,8 +6,8 @@ block content
         input(class="product-id",value="4")
         button(class="fetch-button") Fetch
 
-        div(id="tabs", class="ui-tabs")
-            ul
+        div(id="tabs")
+            ul(class="ui-tabs-nav")
                 li("db")
                     a(href="#fragment-1") DB
                 li
@@ -25,7 +25,5 @@ block content
                                 td(data-bind="text: name")
                                 td(data-bind="text: value")
 
-                div(id="fragment-2")
-                    just some test text 2
-                div(id="fragment-3")
-                    just some test text 3
+                div(id="fragment-2") just some test text 2
+                div(id="fragment-3") just some test text 3
