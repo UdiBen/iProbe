@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* common stuff*/
 }
 body .alternate {
   background-color: #F8F8F8;
@@ -9,11 +10,29 @@ body #product-image {
   width: 250px;
   height: 250px;
 }
+body .product-info {
+  color: #990000;
+  font-size: large;
+  margin-top: 30px;
+}
+body .product-info .item {
+  margin: 15px 0px 5px 5px;
+  display: inline-block;
+}
+body .product-info .item-label {
+  color: black;
+}
+body #tabs {
+  margin-top: 25px;
+}
 body .float {
   float: left;
 }
 body .breaker {
   clear: both;
+}
+body .hidden {
+  display: none;
 }
 
 a {

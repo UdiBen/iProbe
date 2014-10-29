@@ -10,14 +10,24 @@ block data-table
             tbody(data-bind="foreach:fields")
                 tr(data-bind="css: { alternate: $index() % 2 }")
                     td(data-bind="text: name")
-                td(data-bind="text: value")
+                    td(data-bind="text: value")
 
+block product-info
+    div(class="product-info hidden")
+        img(id="product-image", class="float")
+        div(class="float")
+            span(class="item-label") Product Name:
+            span(id="product-name", class="item")
+            div(id="aaa")
+            span(class="item-label") External ProductID:
+            span(id="external-product-id", class="item")
 
 block content
     div(id="content",class="ui-content")
         span Product Id:
         input(class="product-id",value="4")
         button(class="fetch-button") Fetch
+        block product-info
         div(class="breaker")
 
         div(id="tabs", class="ui-tabs")
@@ -31,9 +41,6 @@ block content
 
             div(id="fragment-1")
                 block data-table
-                div
-                    img(id="product-image")
-
             div(id="fragment-2")
                 block data-table
             div(id="fragment-3")

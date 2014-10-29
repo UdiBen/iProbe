@@ -5,8 +5,20 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   .alternate {background-color: #F8F8F8 ;}
   #product-image {width: 250px; height: 250px; }
+  .product-info { color: #990000; font-size: large; margin-top: 30px;
+    .item {margin: 15px 0px 5px 5px; display: inline-block;}
+    .item-label {color: black;}
+   }
+
+  #tabs { margin-top: 25px;}
+
+
+  /* common stuff*/
   .float {float: left;}
   .breaker {clear: both; }
+  .hidden {display: none;}
+
+
 }
 
 a {

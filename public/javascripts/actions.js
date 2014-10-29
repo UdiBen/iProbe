@@ -9,7 +9,7 @@
 
     $("#tabs li").on("click", function(){
         updateView();
-    })
+    });
 
     function updateView(){
         var productId = $("#content").find(".product-id").val();
@@ -21,13 +21,26 @@
         var selectedTab = $('#tabs').find(".ui-tabs-active a").text();
         $.get("/product?source=" + selectedTab + "&productId=" + productId, function (response) {
             viewModel.fields(response);
+        });
+
+        $.get("/product?source=DB&productId=" + productId, function (response) {
+            $('.product-info').removeClass('hidden');
             $(response).each(function(index, value){
-                if(value.name == 'ImageURL'){
-                    var imageUrl = value.value;
-                    $('#product-image').attr('src', imageUrl);
+                switch (value.name) {
+                    case "ImageURL":
+                        $('#product-image').attr('src', value.value);
+                        break;
+                    case "Name":
+                        $('#product-name').text(value.value);
+                        break;
+                    case "ExternalProductId":
+                        $('#external-product-id').text(value.value);
+                        break;
+
                 }
             });
         });
+
     }
 
     ko.applyBindings(viewModel, $("#content")[0]);
