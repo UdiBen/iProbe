@@ -10,4 +10,7 @@ config.db.host = "cruxdb";
 config.db.user = "reader";
 config.db.pwd = "kozel";
 
+config.gb = {};
+config.gb.host = "http://green.prod.global.s.com/gbox/gb/s/data/";
+
 module.exports = config;

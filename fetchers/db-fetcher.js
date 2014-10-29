@@ -5,24 +5,32 @@ var mysql =  require('mysql');
 var config = require('./../config/config').db
 
 function fetch(productId, callback){
-    var connection =  mysql.createConnection({
-            host : config.host,
-            user : config.user,
-            password: config.pwd
-    });
+    var connection = getConnection();
 
-    connection.connect();
-    connection.query("use products");
-    var query = "select * from products where productId="+productId;
-
-    connection.query(query, function(err, rows){
-        var row = rows[0];
-        var properties = [];
-        for(var key in row){
-             properties.push({"name": key, "value": row[key]});
-        }
-        callback(properties);
+    connection.query("select * from products where productId=" + productId, function (err, rows) {
+        connection.end();
+        callback(rows[0]);
     });
 }
 
+function fetchBOs(productId, callback) {
+    var connection = getConnection();
+
+    connection.query("select * from products_buying_options where productid=" + productId, function (err, rows) {
+        connection.end();
+        callback(rows);
+    });
+}
+
+function getConnection() {
+    var connection = mysql.createConnection({
+        host: config.host,
+        user: config.user,
+        password: config.pwd
+    });
+    connection.connect();
+    connection.query("use products");
+    return connection;
+}
 exports.fetch = fetch;
+exports.fetchBOs = fetchBOs;

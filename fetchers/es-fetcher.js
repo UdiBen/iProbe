@@ -14,15 +14,7 @@ function fetch(productId, callback){
         type: "product",
         id: productId
     }, function(error, response){
-        var doc = response._source;
-        var properties = [];
-        for(var key in doc){
-            if (typeof (doc[key]) === 'object')
-                properties.push({"name": key, "value": JSON.stringify(doc[key])});
-            else
-                properties.push({"name": key, "value": doc[key]});
-        }
-        callback(properties);
+        callback(response._source);
     })
 }
 
