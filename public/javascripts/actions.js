@@ -4,8 +4,8 @@
     };
 
     $(".fetch-button").on("click", function(){
-        $.get("/product?source=gb&productId="+$(".product-id").val(), function (response) {
-            viewModel.fields($.parseJSON(response));
+        $.get("/product?source=db&productId="+$(".product-id").val(), function (response) {
+            viewModel.fields(response);
         });
     });
 
