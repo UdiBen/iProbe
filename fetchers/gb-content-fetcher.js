@@ -11,7 +11,7 @@ function fetch(productId, callback){
     function callGreenbox(bos) {
         // TODO: Be more clever...
         var bo = bos[0];
-        if (bo === null || bo["SIN"] === null) {
+        if (bo == null || bo["SIN"] == null) {
             callback({});
             return;
         }
@@ -22,6 +22,7 @@ function fetch(productId, callback){
                 'Accept': 'application/json'
             }
         };
+
         request(options, function(error, response, body){
             var content = JSON.parse(body)[0]["_blob"]["content"];
             callback(content);
