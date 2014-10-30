@@ -1,17 +1,9 @@
 function foo (value, level) {
     try {
         if (value.indexOf('{') >= 0) {
-            value = value.substr(value.indexOf('{') + 1, value.lastIndexOf('}') - 1);
-            var items = value.split(',');
-            var table = '';
-
-            $.each(items, function(i, val){
-                table += '<div>';
-                    table += val ;
-                table += '</div>';
-            });
-
-            return table;
+            //value = value.substr(value.indexOf('{') + 1, value.lastIndexOf('}') - 1);
+            value = JSON.stringify(JSON.parse(value), null, 2);
+            return '<pre class="prettyprint">' + value + '</pre>';
         }
     }
     catch(err) {
