@@ -13,4 +13,10 @@ config.db.pwd = "kozel";
 config.gb = {};
 config.gb.host = "http://green.prod.global.s.com/gbox/gb/s/data/";
 
+config.mongo = {};
+config.mongo.host = "pegasusmongo1";
+config.mongo.port = "27017";
+config.mongo.user = "admin";
+config.mongo.pwd = "MF123456";
+
 module.exports = config;

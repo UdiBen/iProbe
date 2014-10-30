@@ -1,6 +1,7 @@
 var dbFetcher = require("./db-fetcher");
 var esFetcher = require("./es-fetcher");
 var gbContentFetcher = require("./gb-content-fetcher");
+var mongoFetcher = require("./mongo-fetcher");
 
 function getData(source, productId, callback) {
     switch (source){
@@ -13,6 +14,11 @@ function getData(source, productId, callback) {
         case "Greenbox":
             gbContentFetcher.fetch(productId, returnData);
             break;
+        case "Mongo":
+            mongoFetcher.fetch(productId, returnData);
+            break;
+        default:
+            throw "Unsupported fetching source";
     }
 
     function returnData(data) {
