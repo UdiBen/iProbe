@@ -17,7 +17,6 @@ function fetch(productId, callback) {
             body: buildBody(sin)
         }, function (error, response, body) {
             if (error || response != 200) throw error;
-
         });
     });
 
