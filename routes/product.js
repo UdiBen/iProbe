@@ -4,7 +4,7 @@ var fetcher = require('./../fetchers/data-fetcher');
 
 /* GET product info. */
 router.get('/', function(req, res) {
-    fetcher.fetch(req.param("source"), req.param("productId"), sendResponse);
+    fetcher.fetch(req.param("source"), Number(req.param("productId")), sendResponse);
 
     function sendResponse(data) {
         res.send(data);
