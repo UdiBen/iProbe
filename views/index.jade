@@ -10,7 +10,7 @@ block data-table
             tbody(data-bind="foreach:fields")
                 tr(data-bind="css: { alternate: $index() % 2 }")
                     td(data-bind="text: name")
-                    td(data-bind="text: value")
+                    td(data-bind="html: foo(value, 0)")
 
 block product-info
     div(class="product-info hidden")
@@ -29,6 +29,7 @@ block product-info
 
 block content
     div(id="content",class="ui-content")
+
         span Product Id:
         input(class="product-id",value="4")
         button(class="fetch-button") Fetch

@@ -1,7 +1,29 @@
+function foo (value, level) {
+    try {
+        if (value.indexOf('{') >= 0) {
+            value = value.substr(value.indexOf('{') + 1, value.lastIndexOf('}') - 1);
+            var items = value.split(',');
+            var table = '';
+
+            $.each(items, function(i, val){
+                table += '<div>';
+                    table += val ;
+                table += '</div>';
+            });
+
+            return table;
+        }
+    }
+    catch(err) {
+        return value;
+    }
+    return value;
+}
+
 (function(){
+
     var viewModel = {
-        fields: ko.observableArray([]),
-        productImage: ko.observableArray([])
+        fields: ko.observableArray([])
     };
 
     $(".fetch-button").on("click", function(){
