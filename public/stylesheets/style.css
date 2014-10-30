@@ -25,6 +25,9 @@ body .product-info .item-label {
 body #tabs {
   margin-top: 25px;
 }
+body pre {
+  max-width: 1500px;
+}
 body .float {
   float: left;
 }

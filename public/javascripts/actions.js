@@ -3,6 +3,7 @@ function foo (value, level) {
         if (value.indexOf('{') >= 0) {
             //value = value.substr(value.indexOf('{') + 1, value.lastIndexOf('}') - 1);
             value = JSON.stringify(JSON.parse(value), null, 2);
+            //return value;
             return '<pre class="prettyprint">' + value + '</pre>';
         }
     }
