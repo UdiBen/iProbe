@@ -1,6 +1,7 @@
 (function(){
     var viewModel = {
-        fields: ko.observableArray([])
+        fields: ko.observableArray([]),
+        productImage: ko.observableArray([])
     };
 
     $(".fetch-button").on("click", function(){
@@ -35,6 +36,9 @@
                         break;
                     case "ExternalProductId":
                         $('#external-product-id').text(value.value);
+                        break;
+                    case "SourceID":
+                        $('#source-id').text(value.value);
                         break;
 
                 }
