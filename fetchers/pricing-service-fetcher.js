@@ -46,6 +46,10 @@ function buildBody(xids) {
 
 function parseResponse(response) {
     var results = response["price-response"]["item-response"];
+    if (!(results instanceof Array)) {
+        results = [results];
+    }
+
     return results.map(function(item){
         return {
             "status-code": item["status-code"],
