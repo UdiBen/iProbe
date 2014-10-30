@@ -2,24 +2,30 @@ var dbFetcher = require("./db-fetcher");
 var esFetcher = require("./es-fetcher");
 var gbContentFetcher = require("./gb-content-fetcher");
 var mongoFetcher = require("./mongo-fetcher");
+var pdServiceFetcher = require("./product-details-fetcher");
 
 function getData(source, productId, callback) {
+    var fetcher;
     switch (source){
         case "DB":
-            dbFetcher.fetch(productId, returnData);
+            fetcher = dbFetcher;
             break;
         case "Elastic":
-            esFetcher.fetch(productId, returnData);
+            fetcher = esFetcher;
             break;
         case "Greenbox":
-            gbContentFetcher.fetch(productId, returnData);
+            fetcher = gbContentFetcher;
             break;
         case "Mongo":
-            mongoFetcher.fetch(productId, returnData);
+            fetcher = mongoFetcher;
+            break;
+        case "PDService":
+            fetcher = pdServiceFetcher;
             break;
         default:
             throw "Unsupported fetching source";
     }
+    fetcher.fetch(productId, returnData);
 
     function returnData(data) {
         var properties = [];

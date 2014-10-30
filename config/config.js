@@ -19,4 +19,10 @@ config.mongo.port = "27017";
 config.mongo.user = "admin";
 config.mongo.pwd = "MF123456";
 
+config.pricingService = {};
+config.pricingService.host = "http://pricing.shopyourway.com/priceservice/onlineprice/json";
+
+config.productDetails = {};
+config.productDetails.host = "http://10.235.44.56:8081/product-details-service/product-details-service/getProductDetails";
+
 module.exports = config;

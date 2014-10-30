@@ -1,23 +1,19 @@
 /**
  * Created by udi on 10/29/2014.
  */
-var dbFetcher =  require('./db-fetcher');
+var sinProvider =  require('./sin-provider');
 var config = require('./../config/config').gb
 var request = require('request');
 
 function fetch(productId, callback){
-    dbFetcher.fetchBOs(productId, callGreenbox);
-
-    function callGreenbox(bos) {
-        // TODO: Be more clever...
-        var bo = bos[0];
-        if (bo == null || bo["SIN"] == null) {
+    sinProvider.provide(productId, function(sin){
+        if (sin == null) {
             callback({});
             return;
         }
 
         var options = {
-            url: config.host + "get/content/" + bo["SIN"],
+            url: config.host + "get/content/" + sin,
             headers: {
                 'Accept': 'application/json'
             }
@@ -27,7 +23,7 @@ function fetch(productId, callback){
             var content = JSON.parse(body)[0]["_blob"]["content"];
             callback(content);
         });
-    }
+    });
 }
 
 exports.fetch = fetch;
